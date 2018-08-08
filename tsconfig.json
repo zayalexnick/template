@@ -3,14 +3,24 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "jsx": "react-native",
-    "lib": ["es6"],
+    "lib": ["es6", "dom"],
     "module": "es6",
     "moduleResolution": "node",
     "noEmit": true,
     "noImplicitAny": true,
     "target": "es6",
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
+    "baseUrl": ".",
+    "paths": {
+        "@/*": ["source/common/*"],
+        "~/*": ["source/scenes/*"],
+        "%/*": ["source/assets/*"]
+    }
   },
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "include": [
+    "./source/**/*",
+    "./typings/**/*"
+  ]
 }

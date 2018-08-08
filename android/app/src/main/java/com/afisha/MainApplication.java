@@ -3,11 +3,6 @@ package com.afisha;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
-import com.horcrux.svg.SvgPackage;
-import com.doochik.RNAppMetrica.AppMetricaPackage;
-import info.goodline.react.android.fcm.RNGlFcmBridgePackage(private val registrator: ITokenRegistrator);
-import info.goodline.react.android.authbridge.RNGlAuthBridgePackage(private val passport: GLPassport);
-import com.bugsnag.BugsnagReactNative;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -27,12 +22,7 @@ public class MainApplication extends Application implements ReactApplication {
     @Override
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
-          new MainReactPackage(),
-            new SvgPackage(),
-            new AppMetricaPackage(),
-            new RNGlFcmBridgePackage(private val registrator: ITokenRegistrator)(),
-            new RNGlAuthBridgePackage(private val passport: GLPassport)(),
-            BugsnagReactNative.getPackage()
+          new MainReactPackage()
       );
     }
 

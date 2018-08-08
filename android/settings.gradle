@@ -1,13 +1,3 @@
 rootProject.name = 'afisha'
-include ':react-native-svg'
-project(':react-native-svg').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-svg/android')
-include ':react-native-appmetrica'
-project(':react-native-appmetrica').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-appmetrica/android')
-include ':gl-fcm-bridge'
-project(':gl-fcm-bridge').projectDir = new File(rootProject.projectDir, '../node_modules/gl-fcm-bridge/android')
-include ':gl-auth-bridge'
-project(':gl-auth-bridge').projectDir = new File(rootProject.projectDir, '../node_modules/gl-auth-bridge/android')
-include ':bugsnag-react-native'
-project(':bugsnag-react-native').projectDir = new File(rootProject.projectDir, '../node_modules/bugsnag-react-native/android')
 
 include ':app'

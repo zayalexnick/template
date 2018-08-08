@@ -3,14 +3,15 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "postinstall-d": "./install_ios.sh",
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest"
   },
   "dependencies": {
-    "bugsnag-react-native": "^2.10.2",
+    "@callstack/async-storage": "^1.1.0",
+    "@types/react-navigation": "^2.0.13",
+    "axios": "^0.18.0",
     "di-typescript": "^1.1.4",
-    "gl-auth-bridge": "^0.0.1",
-    "gl-fcm-bridge": "^1.0.0",
     "gl-rnelements": "^0.0.2",
     "gl-rnservices": "^0.0.2",
     "mobx": "^5.0.3",
@@ -20,7 +21,6 @@
     "polished": "^1.9.3",
     "react": "16.4.1",
     "react-native": "0.56.0",
-    "react-native-appmetrica": "^1.0.1",
     "react-native-svg": "^6.5.2",
     "react-navigation": "^2.11.2",
     "reflect-metadata": "^0.1.12",
@@ -29,13 +29,20 @@
     "tslib": "^1.9.3"
   },
   "devDependencies": {
+    "@babel/core": "^7.0.0-beta.56",
+    "@types/axios": "^0.14.0",
     "@types/jest": "^23.3.1",
     "@types/react": "^16.4.8",
     "@types/react-native": "^0.56.6",
     "@types/react-test-renderer": "^16.0.2",
+    "axios-mock-adapter": "^1.15.0",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "23.4.2",
-    "babel-preset-react-native": "^5",
+    "babel-plugin-module-resolver": "^3.1.1",
+    "babel-preset-react-native": "5",
+    "commander": "^2.17.1",
     "jest": "23.4.2",
+    "mock-async-storage": "^2.0.3",
     "react-native-typescript-transformer": "^1.2.10",
     "react-test-renderer": "16.4.1",
     "ts-jest": "^23.1.3",
@@ -43,8 +50,10 @@
   },
   "jest": {
     "preset": "react-native",
+    "verbose": true,
     "transform": {
-      "^.+\\.tsx?$": "ts-jest"
+      ".tsx?$": "ts-jest",
+      ".jsx?$": "babel-jest"
     },
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
     "moduleFileExtensions": [
@@ -57,6 +66,11 @@
     ],
     "modulePaths": [
       "<rootDir>"
-    ]
+    ],
+    "moduleNameMapper": {
+      "@/(.*)": "<rootDir>/source/common/$1",
+      "~/(.*)": "<rootDir>/source/scenes/$1",
+      "%/(.*)": "<rootDir>/source/assets/$1"
+    }
   }
 }
