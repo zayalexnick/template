@@ -3,13 +3,14 @@ import { Provider } from 'mobx-react';
 import { ThemeProvider } from 'styled-components';
 
 import stores from '@/mobx/stores';
-import Navigator from '@/navigation/Navigator';
 import ThemeConfig from '@/theme/ThemeConfig';
+
+import Main from '~/Main/screens/Main.screen';
 
 export default () => (
     <Provider { ...stores }>
         <ThemeProvider theme={ThemeConfig}>
-            <Navigator />
+            <Main />
         </ThemeProvider>
     </Provider>
 );

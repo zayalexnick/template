@@ -26,7 +26,6 @@ class HTTPService
                 const refreshToken: string = await Storage.getItem('refreshToken');
                 const { data }: AxiosResponse = await this.post('path/to/refresh', { refreshToken });
                 await this.setToken(data.token, data.refreshToken);
-                this.instance.defaults.headers['TOKEN'] = data.token;
                 return this.instance;
             }
 

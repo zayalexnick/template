@@ -3,13 +3,13 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "postinstall-d": "./install_ios.sh",
-    "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "server:native": "react-native start",
+    "server:web": "cross-env NODE_ENV=development webpack-dev-server",
+    "build:web": "cross-env NODE_ENV=production webpack",
+    "test:native": "cross-env PLATFORM=native jest",
+    "test:web": "cross-env PLATFORM=web jest"
   },
   "dependencies": {
-    "@callstack/async-storage": "^1.1.0",
-    "@types/react-navigation": "^2.0.13",
     "axios": "^0.18.0",
     "di-typescript": "^1.1.4",
     "gl-rnelements": "^0.0.2",
@@ -20,6 +20,7 @@
     "moment": "^2.22.2",
     "polished": "^1.9.3",
     "react": "16.4.1",
+    "react-dom": "^16.4.2",
     "react-native": "0.56.0",
     "react-native-svg": "^6.5.2",
     "react-navigation": "^2.11.2",
@@ -33,7 +34,9 @@
     "@types/axios": "^0.14.0",
     "@types/jest": "^23.3.1",
     "@types/react": "^16.4.8",
+    "@types/react-dom": "^16.0.7",
     "@types/react-native": "^0.56.6",
+    "@types/react-navigation": "^2.0.13",
     "@types/react-test-renderer": "^16.0.2",
     "axios-mock-adapter": "^1.15.0",
     "babel-core": "^7.0.0-bridge.0",
@@ -41,36 +44,18 @@
     "babel-plugin-module-resolver": "^3.1.1",
     "babel-preset-react-native": "5",
     "commander": "^2.17.1",
+    "cross-env": "^5.2.0",
+    "html-webpack-plugin": "^3.2.0",
     "jest": "23.4.2",
-    "mock-async-storage": "^2.0.3",
+    "jest-flow-transform": "^1.0.1",
     "react-native-typescript-transformer": "^1.2.10",
     "react-test-renderer": "16.4.1",
     "ts-jest": "^23.1.3",
-    "typescript": "^3.0.1"
-  },
-  "jest": {
-    "preset": "react-native",
-    "verbose": true,
-    "transform": {
-      ".tsx?$": "ts-jest",
-      ".jsx?$": "babel-jest"
-    },
-    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ],
-    "modulePaths": [
-      "<rootDir>"
-    ],
-    "moduleNameMapper": {
-      "@/(.*)": "<rootDir>/source/common/$1",
-      "~/(.*)": "<rootDir>/source/scenes/$1",
-      "%/(.*)": "<rootDir>/source/assets/$1"
-    }
+    "ts-loader": "^4.4.2",
+    "typescript": "^3.0.1",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5",
+    "webpack-merge": "^4.1.4"
   }
 }
