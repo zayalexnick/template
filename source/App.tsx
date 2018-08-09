@@ -5,12 +5,12 @@ import { ThemeProvider } from 'styled-components';
 import stores from '@/mobx/stores';
 import ThemeConfig from '@/theme/ThemeConfig';
 
-import Main from '~/Main/screens/Main.screen';
+import Navigation from '@/navigation/Navigation';
 
 export default () => (
     <Provider { ...stores }>
         <ThemeProvider theme={ThemeConfig}>
-            <Main />
+            <Navigation />
         </ThemeProvider>
     </Provider>
 );
